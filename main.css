@@ -85,3 +85,8 @@ body {
   .list-group-item list-group-item-light:hover {
     color: burlywood;
   }
+
+  img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
