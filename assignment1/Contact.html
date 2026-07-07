@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Muliro Michael Khaemba — send a message through the contact form.">
+  <title>Contact | Muliro Michael Khaemba</title>
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">Muliro Michael K.</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        Menu
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+
+      <h1 class="page-title">Contact Me</h1>
+      <p class="page-subtitle">Have a question or want to work together? Send me a message.</p>
+
+      <div class="contact-wrapper">
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <!-- Name field -->
+          <div class="form-group" id="name-group">
+            <label for="name">Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name" aria-required="true" aria-describedby="name-error">
+            <p class="form-error" id="name-error" role="alert"></p>
+          </div>
+
+          <!-- Email field -->
+          <div class="form-group" id="email-group">
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" aria-required="true" aria-describedby="email-error">
+            <p class="form-error" id="email-error" role="alert"></p>
+          </div>
+
+          <!-- Subject field -->
+          <div class="form-group" id="subject-group">
+            <label for="subject">Subject <span aria-hidden="true">*</span></label>
+            <input type="text" id="subject" name="subject" required minlength="5" maxlength="100" aria-required="true" aria-describedby="subject-hint subject-error">
+            <p class="form-hint" id="subject-hint">Between 5 and 100 characters.</p>
+            <p class="form-error" id="subject-error" role="alert"></p>
+          </div>
+
+          <!-- Message field -->
+          <div class="form-group" id="message-group">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required minlength="20" maxlength="1000" aria-required="true" aria-describedby="message-hint message-error"></textarea>
+            <p class="form-hint" id="message-hint">Between 20 and 1,000 characters.</p>
+            <p class="form-error" id="message-error" role="alert"></p>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+
+          <p class="form-success" id="form-success" role="status">
+            Your message has been sent successfully. Thank you!
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Muliro Michael Khaemba. All Rights Reserved.</p>
+      <p>Full Stack Software Engineer | Ottawa, Ontario, Canada</p>
+      <nav class="footer-social" aria-label="Social media links">
+        <a href="https://www.linkedin.com/in/michael-muliro" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Muliro1" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:mulirokhaemba@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,712 @@
+/* ==========================================================================
+   Portfolio Site Stylesheet
+   Author: Muliro Michael Khaemba
+   Shared across all assignment pages: index, resume, Projects, Contact
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Variables & Reset
+   -------------------------------------------------------------------------- */
+:root {
+  --color-primary: #0f4c75;
+  --color-primary-dark: #0a3554;
+  --color-accent: #1b9aaa;
+  --color-accent-light: #e8f6f8;
+  --color-text: #2d3436;
+  --color-text-muted: #636e72;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f7f9;
+  --color-border: #dfe6e9;
+  --color-error: #c0392b;
+  --color-success: #27ae60;
+  --font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --shadow-sm: 0 2px 8px rgba(15, 76, 117, 0.08);
+  --shadow-md: 0 8px 24px rgba(15, 76, 117, 0.12);
+  --radius: 8px;
+  --max-width: 1100px;
+  --nav-height: 64px;
+  --transition: 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Skip link for keyboard users (WCAG) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Site Header & Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--nav-height);
+}
+
+.site-logo {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  color: var(--color-accent-light);
+  text-decoration: none;
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-nav a.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content Layout
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-accent);
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   Landing Page (index.html)
+   -------------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  padding: 3rem 1.25rem;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-bottom: 1.25rem;
+}
+
+.intro-text {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-accent);
+}
+
+.info-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.info-card ul li {
+  padding: 0.25rem 0;
+  color: var(--color-text-muted);
+}
+
+.info-card ul li::before {
+  content: "▸ ";
+  color: var(--color-accent);
+}
+
+.college-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Resume Page (resume.html)
+   -------------------------------------------------------------------------- */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.contact-list li {
+  padding: 0.35rem 0;
+}
+
+.contact-list strong {
+  color: var(--color-primary);
+  min-width: 5rem;
+  display: inline-block;
+}
+
+.resume-item {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resume-item h4 {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.resume-item .meta {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-item .meta em {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.resume-item ul {
+  list-style: disc;
+  margin-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.resume-item ul li {
+  margin-bottom: 0.35rem;
+  color: var(--color-text-muted);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-subheading {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+}
+
+.skills-section {
+  margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--color-accent);
+}
+
+.summary-box {
+  background: var(--color-bg-alt);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-accent);
+  margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Projects Page (Projects.html) — Slideshow
+   -------------------------------------------------------------------------- */
+#projectcontainer {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  min-height: 420px;
+}
+
+.project-card {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.project-card.active {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-image {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.project-details h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.project-details p {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.project-meta {
+  font-size: 0.95rem;
+}
+
+.project-meta dt {
+  font-weight: 700;
+  color: var(--color-primary);
+  display: inline;
+}
+
+.project-meta dt::after {
+  content: ": ";
+}
+
+.project-meta dd {
+  display: inline;
+  margin-right: 1rem;
+  color: var(--color-text-muted);
+}
+
+.project-meta dd::after {
+  content: "";
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.slideshow-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.slideshow-controls button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.slideshow-controls button:hover {
+  background: var(--color-primary-dark);
+}
+
+.slideshow-controls button:active {
+  transform: scale(0.97);
+}
+
+.slideshow-controls button:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.slide-indicator {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  min-width: 5rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Contact Page (Contact.html) — Form
+   -------------------------------------------------------------------------- */
+.contact-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: var(--color-bg-alt);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.form-error {
+  font-size: 0.85rem;
+  color: var(--color-error);
+  margin-top: 0.35rem;
+  min-height: 1.2rem;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+  border-color: var(--color-error);
+}
+
+.submit-btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  border-radius: var(--radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--color-primary);
+}
+
+.form-success {
+  background: #d4edda;
+  color: var(--color-success);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  display: none;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Site Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 1.75rem 1.25rem;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-inner p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.footer-inner a {
+  color: var(--color-accent-light);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.footer-social a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--color-primary-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .main-nav.open {
+    max-height: 300px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .main-nav a {
+    padding: 0.75rem 1rem;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .profile-photo {
+    max-width: 200px;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.active {
+    grid-template-columns: 1fr;
+  }
+
+  #projectcontainer {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .slideshow-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .slideshow-controls button {
+    width: 100%;
+  }
+}
